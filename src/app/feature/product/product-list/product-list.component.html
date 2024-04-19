@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+<div>
+    <section class="heading">
+      <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
+      <a routerLink="/product/create">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+      </a>
+    </section>
+    <table *ngIf="products" class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Vendor</th>
+          <th>Partnumber</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Unit</th>
+          <th>Photopath</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.vendor.code +" "+product.vendor.name }}</td>
+          <td>{{ product.partnumber }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.unit }}</td>
+          <td>{{ product.photopath }}</td>
+          <td>
+            <a routerLink="/product/detail/{{ product.id }}">
+              <img
+                width="20"
+                height="20"
+                src="assets/details.png"
+                title="Vendor Details"
+              />
+            </a>
+            <a routerLink="/product/edit/{{ product.id }}">
+              <img
+                width="20"
+                height="20"
+                src="assets/pencil-icon.png"
+                title="Edit Vendor"
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

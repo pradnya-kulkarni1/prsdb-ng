@@ -1,0 +1,77 @@
+
+<app-menu></app-menu>
+<div>
+    <span class="component-title">[{{ title }}]</span>
+    <p *ngIf="!request">Loading...</p>
+    <div *ngIf="request">
+      <main class="single">
+        <table class="table table-sm">
+            <thead>
+                <th>User</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+            <tr>
+            <td>{{request.user.username}}</td>
+            <td> {{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+            </tr>
+            </tbody>
+        </table>
+      </main>
+    </div><span class="component-title">[Line Items]</span>
+    <div *ngIf="lineitems">
+      <a routerLink="/lineitems/create/{{requestId}}">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+      </a>
+      <main class="single">
+        <table class="table table-sm">
+            <thead>
+                <th>LineiD</th>
+                <th>Vendor</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Line Total</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of lineitems">
+                <td>{{l.id}}</td>
+                <td>{{l.product.vendor.name}}</td>
+                <td>{{l.product.name}}</td>
+                <td>{{l.quantity}}</td>
+                <td>{{l.product.price}}</td>
+                <td>{{l.product.price*l.quantity}}</td>
+                <td>
+                  <a routerLink="/lineitems/edit/{{ l.id }}">
+                    <img
+                      width="20"
+                      height="20"
+                      src="assets/pencil-icon.png"
+                      title="Edit Lineitem"
+                    />
+                  </a>
+                </td>
+                <td>
+                  <a routerLink="/lineitems/edit/{{ l.id }}">
+                    <img
+                      width="20"
+                      height="20"
+                      src="assets/delete (1).jpg"
+                      title="delete Lineitem"
+                    />
+                  </a>
+                </td>
+                </tr>
+        </tbody>
+</table>
+<span><button (click)="submit()"  class="btn btn-sm btn-warning">Submit</button></span>
+</main>
+</div>
+</div>
+
+ 

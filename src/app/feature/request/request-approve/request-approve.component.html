@@ -1,0 +1,54 @@
+<app-menu></app-menu>
+<span class="component-title">[{{ title }}]</span>
+<p *ngIf="!request">Loading...</p>
+<div *ngIf="request">
+  <main class="single">
+    <table class="table table-sm">
+        <thead>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+        <tr>
+        <td>{{request.id}}</td>
+        <td> {{request.description}}</td>
+        <td>{{request.status}}</td>
+        <td>{{request.total}}</td>
+        </tr>
+        </tbody>
+        </table>
+        </main>
+        </div>
+    <span class="component-title">[Line Items]</span>
+    <div *ngIf="lineitems">
+        <main class="single">
+            <table class="table table-sm">
+                <thead>
+                    <th>LineiD</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Line Total</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let l of lineitems">
+                    <td>{{l.id}}</td>
+                    <td>{{l.product.name}}</td>
+                    <td>{{l.quantity}}</td>
+                    <td>{{l.product.price}}</td>
+                    <td>{{l.product.price*l.quantity}}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </main>    
+                    <span><button (click)="approve()"  class="btn btn-sm btn-warning">Approve</button></span>
+                    <tr>
+                        <td>Reason For Rejection</td>
+                        <td>
+                          <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text"/>
+                        </td>
+                      </tr>
+                      <span><button (click)="reject()"  class="btn btn-sm btn-warning">Reject</button></span>
+                      

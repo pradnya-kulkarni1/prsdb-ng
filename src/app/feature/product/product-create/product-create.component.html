@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+<div>
+    <span class="component-title">[{{ title }}]</span>
+    <p *ngIf="!product">Loading...</p>
+    <div *ngIf="product">
+      <main class="single">
+        <table class="table table-sm">
+          <tr>
+            <td>Vendor:</td>
+            <td>
+                <select [(ngModel)]="product.vendor" class="rounded">
+                  <option *ngFor="let v of vendors" [ngValue]="v">
+                    {{ v.name }}
+                  </option>
+                </select>
+              </td>
+          </tr>
+          <tr>
+            <td>Partnumber:</td>
+            <td>
+              <input [(ngModel)]="product.partnumber" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>
+              <input [(ngModel)]="product.name" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Price:</td>
+            <td>
+              <input [(ngModel)]="product.price" class="rounded" type="number" />
+            </td>
+          </tr>
+          <tr>
+            <td>Unit:</td>
+            <td>
+              <input [(ngModel)]="product.unit" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Photopath:</td>
+            <td>
+              <input [(ngModel)]="product.photopath" class="rounded" type="text" />
+            </td>
+          </tr>          
+        </table>
+      </main>
+      <span>
+        <button (click)="save()" class="btn btn-sm btn-primary">Save</button>
+      </span>
+      <p *ngIf="message">{{ message }}</p>
+    </div>
+  </div>
+
+

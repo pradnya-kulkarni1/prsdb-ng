@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<div>
+    <span class="component-title">[{{ title }}]</span>
+    <p *ngIf="!lineitem">Loading...</p>
+    <div *ngIf="lineitem">
+      <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>LineitemId:</td>
+                <td>
+                    <input [(ngModel)]="lineitem.id" class="rounded" type="number" disabled />
+                </td>
+            </tr>
+            <tr>
+                <td>Request:</td>
+                <td>
+                    <input [(ngModel)]="lineitem.request.id" class="rounded" type="number" disabled />
+                </td>
+            </tr>
+            <tr>
+            <td>Product:</td>
+          <td>
+            <select [(ngModel)]="lineitem.product" class="rounded">
+              <option *ngFor="let p of products" [ngValue]="p">
+                {{ p.name }}
+              </option>
+            </select>
+          </td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td>
+              <input [(ngModel)]="lineitem.quantity" class="rounded" type="text" />
+            </td>
+          </tr>
+        </table>
+      </main>
+      <span
+        ><button (click)="save()" class="btn btn-sm btn-primary">
+          Save
+        </button></span>
+        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+    </div>
+  </div>
