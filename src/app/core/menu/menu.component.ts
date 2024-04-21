@@ -8,7 +8,7 @@ import { SystemService } from 'src/app/service/system.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  title: string = 'Menu-Component';
+  title: string = 'Menu';
   menuItems: MenuItem[] = [];
   welcomeMsg?: string = undefined;
 

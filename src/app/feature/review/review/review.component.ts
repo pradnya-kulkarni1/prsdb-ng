@@ -28,8 +28,8 @@ export class ReviewComponent {
 
   ngOnInit(): void {
     // getiing all the requests from review method
-    //getAllRequestForReview
-    
+    //if user is a reviewer getAllRequestForReview
+    if (this.sysSvc.loggedInUser.reviewer){
 
     this.route.params.subscribe({
       next:(parms)=> {
@@ -46,7 +46,12 @@ export class ReviewComponent {
       },
       complete:() => {},
     });
+  }
+  else {
+    console.log("User is not a reviewer");
+    
+  }
    
   }
-  done (): void {}
+ 
 }

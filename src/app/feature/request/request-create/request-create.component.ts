@@ -16,6 +16,7 @@ export class RequestCreateComponent implements OnInit {
   request: Request = new Request();
   user: User = new User();
   message?: string = undefined;
+deliveryModes: string[] = ['Pickup', 'FreeDelivery','ExpressDelivery']
 
   constructor(private requestSvc: RequestService,private userSVC: UserService,
      private systemSvc: SystemService, private router: Router) { }

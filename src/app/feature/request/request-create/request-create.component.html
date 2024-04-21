@@ -32,7 +32,11 @@
           <tr>
             <td>Delivery Mode:</td>
             <td>
-              <input [(ngModel)]="request.deliveryMode" class="rounded" type="text" />
+              <select [(ngModel)]="request.deliveryMode" class="rounded">>
+                <option *ngFor="let d of deliveryModes" [ngValue]="d">
+                  {{ d }}
+                </option>
+              </select>
             </td>
           </tr>
         </table>

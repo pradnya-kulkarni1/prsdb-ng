@@ -1,5 +1,6 @@
 tr{
-  background: rgba(146, 211, 237, 0.75)
+  background-color: rgba(76, 152, 238, 0.75);
+  text-align:center;
 }
 h1{
   color:blue;

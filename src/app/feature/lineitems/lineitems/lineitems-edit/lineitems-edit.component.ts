@@ -95,13 +95,7 @@ export class LineitemsEditComponent implements OnInit {
     this.requestIdOfLineitemDelete = this.lineitem.request.id;
     this.lineitemSvc.deleteLineitem(this.lineitem.id).subscribe({
       next: (resp) => {
-        // if (resp == false) {
-        //   console.log('LineitemsComponent - error deleting Lineitem.');
-         // this.message = 'LineitemsComponent - error deleting Lineitem.';
           this.router.navigateByUrl('/lineitems/'+this.requestIdOfLineitemDelete);
-        // } else {
-          
-        // }
       },
       error: (err) => {
         console.log(
