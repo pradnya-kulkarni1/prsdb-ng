@@ -15,7 +15,7 @@
           <th>Name</th>
           <th>Price</th>
           <th>Unit</th>
-          <th>Photopath</th>
+          <th>PhotoPath</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -23,11 +23,11 @@
         <tr *ngFor="let product of products">
           <td>{{ product.id }}</td>
           <td>{{ product.vendor.code +" "+product.vendor.name }}</td>
-          <td>{{ product.partnumber }}</td>
+          <td>{{ product.partNumber }}</td>
           <td>{{ product.name }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.unit }}</td>
-          <td>{{ product.photopath }}</td>
+          <td>{{ product.photoPath }}</td>
           <td>
             <a routerLink="/product/detail/{{ product.id }}">
               <img

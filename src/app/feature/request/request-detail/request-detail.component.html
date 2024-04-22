@@ -45,7 +45,7 @@
               <input
                 [(ngModel)]="request.dateNeeded"
                 class="rounded"
-                type="datetime-local"
+                type="date"
                 disabled
               />
             </td>
@@ -87,9 +87,9 @@
             <td>Submitted Date:</td>
             <td>
               <input
-                [(ngModel)]="request.submitteddate"
+                [(ngModel)]="request.submittedDate"
                 class="rounded"
-                type="date"
+                type="datetime| date :'MM/dd/yyyy'"
                 disabled
               />
             </td>
@@ -109,10 +109,10 @@
       </main>
       <span>
         <span
-          ><a
+          ><button
             routerLink="/Request/edit/{{ request.id }}"
             class="btn btn-sm btn-warning"
-            >Edit</a
+            >Edit</button
           ></span
         >
         <span>

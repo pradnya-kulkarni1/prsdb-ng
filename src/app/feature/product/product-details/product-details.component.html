@@ -20,7 +20,7 @@
           <tr>
             <td>PartNumber:</td>
             <td>
-              <input [(ngModel)]="product.partnumber" class="rounded" type="text" disabled/>
+              <input [(ngModel)]="product.partNumber" class="rounded" type="text" disabled/>
             </td>
           </tr>
           <tr>
@@ -44,13 +44,13 @@
           <tr>
             <td>Photopath:</td>
             <td>
-              <input [(ngModel)]="product.photopath" class="rounded" type="text" disabled/>
+              <input [(ngModel)]="product.photoPath" class="rounded" type="text" disabled/>
             </td>
           </tr>
         </table>
       </main>
       <span >
-        <span><a routerLink="/product/edit/{{product.id}}" class="btn btn-sm btn-warning">Edit</a></span>
+        <span><button routerLink="/product/edit/{{product.id}}" class="btn btn-sm btn-warning">Edit</button></span>
         <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
     </span>
       <p *ngIf="message">{{ message }}</p>

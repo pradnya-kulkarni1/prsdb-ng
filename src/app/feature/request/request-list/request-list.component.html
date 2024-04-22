@@ -33,7 +33,7 @@
           <td>{{ request.deliveryMode }}</td>
           <td>{{ request.status }}</td>
           <td>{{ request.total }}</td>
-          <td>{{ request.submitteddate }}</td>
+          <td>{{ request.submittedDate | date :'MM/dd/yyyy'}}</td>
           <td>{{ request.reasonForRejection }}</td>
           <td>
             <a routerLink="/request/detail/{{ request.id }}">

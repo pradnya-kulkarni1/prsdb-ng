@@ -48,23 +48,4 @@ deliveryModes: string[] = ['Pickup', 'FreeDelivery','ExpressDelivery']
   }
 }
 
-// ngOnInit(): void {
-//   this.route.params.subscribe({
-//     next: (parms) => {
-//       this.userId = parms['id'];
-//       this.userSvc.getUserById(this.userId).subscribe({
-//         next: (parms) => {
-//           this.user = parms;
-//         },
-//         error: (err) => {
-//           console.log('Error getting user by id: ', err);
-//         },
-//         complete: () => {}
-//       });
-//     },
-//     error: (err) => {
-//       console.log('Error getting id from url: ', err);
-//     },
-//     complete: () => {},
-//   });
-// }
+

@@ -10,12 +10,12 @@ export class Request{
     deliveryMode: string;
     status: string;
     total: number;
-    submitteddate: Date;
+    submittedDate: Date;
     reasonForRejection: string;
     
 
     constructor(id:number=0, user=new User(), description='',justification = '',
-    dateNeeded = new Date(),deliveryMode ='', status = ' ', total = 0, submitteddate = new Date(),
+    dateNeeded = new Date(),deliveryMode ='', status = ' ', total = 0, submittedDate = new Date(),
      reasonForRejection = ''){
             this.id = id;
             this.user = user;
@@ -25,7 +25,7 @@ export class Request{
             this.deliveryMode = deliveryMode;
             this.status = status;
             this.total = total;
-            this.submitteddate = submitteddate;
+            this.submittedDate = submittedDate;
             this.reasonForRejection = reasonForRejection;
             
         }
