@@ -51,5 +51,5 @@
                         </td>
                       </tr>
                     
-                      <span><button (click)="reject()"  class="btn btn-sm btn-warning">Reject</button></span>
+                      <span><button (click)="reject()"  class="reject"[disabled]="!request.reasonForRejection.trim()">Reject</button></span>
                      
