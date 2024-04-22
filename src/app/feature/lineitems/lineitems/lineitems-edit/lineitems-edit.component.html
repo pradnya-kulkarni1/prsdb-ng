@@ -20,8 +20,8 @@
             <tr>
             <td>Product:</td>
           <td>
-            <select [(ngModel)]="lineitem.product" class="rounded">
-              <option *ngFor="let p of products" [ngValue]="p">
+            <select [(ngModel)]="lineitem.product.name" class="rounded">
+              <option *ngFor="let p of products" [ngValue]="p.name">
                 {{ p.name }}
               </option>
             </select>
@@ -39,6 +39,5 @@
         ><button (click)="save()" class="btn btn-sm btn-primary">
           Save
         </button></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
     </div>
   </div>

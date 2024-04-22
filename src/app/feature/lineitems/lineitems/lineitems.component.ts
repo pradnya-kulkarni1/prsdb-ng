@@ -20,6 +20,7 @@ export class LineitemsComponent implements OnInit {
   request: Request = new Request();
   requestId: number = 0;
   lineitem: Lineitem= new Lineitem;
+  requestIdOfLineitemDelete: number = 0;
  
 
   constructor(
@@ -79,5 +80,43 @@ export class LineitemsComponent implements OnInit {
       complete:() => {},
     });
   }
- 
+  delete(lineItemId: number) {
+   
+    this.lineitemSvc.deleteLineitem(lineItemId).subscribe({
+      next: (resp) => {
+        console.log("RequestId after delete = "+this.request.id);
+        // get the request by requestId
+        // get all line items for request
+        
+            this.reqSvc.getRequestById(this.request.id).subscribe({
+              next: (parms) => {
+                this.request = parms;
+              },
+            });
+            console.log("request id, again, ="+this.requestId);
+            this.lineitemSvc.getLinesForRequestById(this.request.id).subscribe({
+              next:(resp) => {
+                this.lineitems=resp;
+                this.router.navigateByUrl('/lineitems/'+this.requestId);
+                  },
+              error: (err) => {  
+                console.log('Error finding lines for requests: ', err);
+                this.message = 'Error creating lines';
+                  },
+              complete: () => {
+                console.log("c");
+                },
+              });
+         
+            },
+      error: (err) => {
+        console.log(
+          'LineitemsComponent - Error deleting lineitem: ' + err.message
+        );
+        this.message =
+          'LineitemsComponent - error deleting lineitem: ' + err.message;
+      },
+      complete: () => {},
+    });
+  }
 }

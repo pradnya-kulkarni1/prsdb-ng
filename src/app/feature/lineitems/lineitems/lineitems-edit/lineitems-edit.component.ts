@@ -22,7 +22,7 @@ export class LineitemsEditComponent implements OnInit {
   request: Request = new Request();
   products: Product[] = [];
   message?: string = undefined;
-  requestIdOfLineitemDelete: number = 0;
+ 
 
 
   constructor(
@@ -91,21 +91,5 @@ export class LineitemsEditComponent implements OnInit {
       complete: () => {},
     });
   }
-  delete() {
-    this.requestIdOfLineitemDelete = this.lineitem.request.id;
-    this.lineitemSvc.deleteLineitem(this.lineitem.id).subscribe({
-      next: (resp) => {
-          this.router.navigateByUrl('/lineitems/'+this.requestIdOfLineitemDelete);
-      },
-      error: (err) => {
-        console.log(
-          'LineitemsComponent - Error deleting lineitem: ' + err.message
-        );
-        this.message =
-          'LineitemsComponent - error deleting lineitem: ' + err.message;
-      },
-      complete: () => {},
-    });
-  }
-
+  
 }

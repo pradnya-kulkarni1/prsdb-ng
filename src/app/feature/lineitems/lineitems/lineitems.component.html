@@ -44,8 +44,8 @@
                 <td>{{l.product.vendor.name}}</td>
                 <td>{{l.product.name}}</td>
                 <td>{{l.quantity}}</td>
-                <td>{{l.product.price}}</td>
-                <td>{{l.product.price*l.quantity}}</td>
+                <td>{{l.product.price| currency}}</td>
+                <td>{{l.product.price*l.quantity | currency}}</td>
                 <td>
                   <a routerLink="/lineitems/edit/{{ l.id }}">
                     <img
@@ -55,16 +55,14 @@
                       title="Edit Lineitem"
                     />
                   </a>
-                </td>
-                <td>
-                  <a routerLink="/lineitems/edit/{{ l.id }}">
+                  <button (click)="delete(l.id)" style="border: none">
                     <img
                       width="20"
                       height="20"
                       src="assets/delete (1).jpg"
                       title="delete Lineitem"
                     />
-                  </a>
+                  </button>
                 </td>
                 </tr>
         </tbody>

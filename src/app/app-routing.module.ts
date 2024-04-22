@@ -45,6 +45,7 @@ const routes: Routes = [
   { path: 'lineitems/:id', component:LineitemsComponent},
   { path: 'lineitems/create/:id', component:LineitemsCreateComponent},
   { path: 'lineitems/edit/:id', component:LineitemsEditComponent},
+  { path: 'lineitems/:id', component:LineitemsComponent},
   { path: 'review/:id', component:ReviewComponent},
   { path: 'lineitems/:id', component:LineitemsComponent},
   { path: 'lineitems/:id', component:LineitemsComponent},

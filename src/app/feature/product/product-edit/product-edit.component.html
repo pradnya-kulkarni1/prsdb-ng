@@ -14,7 +14,11 @@
           <tr>
             <td>Vendor Name:</td>
             <td>
-              <input [(ngModel)]="product.vendor.name" class="rounded" type="text"/>
+              <select [(ngModel)]="product.vendor.name" class="rounded">>
+                <option *ngFor="let p of vendors" [ngValue]="p.name">
+                  {{ p.name }}
+                </option>
+              </select>
             </td>
           </tr>
           <tr>

@@ -54,6 +54,7 @@ export class LineitemsCreateComponent {
     this.productSvc.getAllProducts().subscribe({
       next: (resp) => {
         this.products = resp;
+        
       },
       error: (err) => {
         console.log('Lineitems Create - error getting lineitems.');
@@ -64,6 +65,7 @@ export class LineitemsCreateComponent {
 
 
   create(): void{
+    console.log("createLineItem - LI: ",this.lineitem);
     this.lineitemSvc.createLineitem(this.lineitem).subscribe({
       next: (resp) => {   
         this.lineitem = resp;
