@@ -1,10 +1,23 @@
 tr{
-  background-color: rgba(76, 152, 238, 0.75);
+  background-color: rgba(177, 206, 241, 0.75);
   text-align:center;
 }
 h1{
-  color:blue;
+  color:rgb(50, 50, 244);
 }
 body{
-  color:blue;
+  color:rgb(141, 141, 238);
+}
+
+.user-login {
+  width: 80%;
+  margin: 50px auto;
+  background: rgba(136, 148, 152, 0.75); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}
+table, th, td {
+  border: 1px solid #fafefe;
+
 }
