@@ -1,8 +1,8 @@
 <app-menu></app-menu>
-<div>
+<div class="vendor-list">
     <section class="heading">
       <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
-      <a routerLink="/vendor/create">
+      <a *ngIf = "adminUser" routerLink="/vendor/create">
         <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
       </a>
     </section>
@@ -18,7 +18,7 @@
           <th>Zip</th>
           <th>Phone</th>
           <th>Email</th>
-          <th>Action</th>
+          <th *ngIf = "adminUser">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +33,7 @@
           <td>{{ vendor.phone }}</td>
           <td>{{ vendor.email }}</td>
           <td>
-            <a routerLink="/vendor/detail/{{ vendor.id }}">
+            <a *ngIf = "adminUser" routerLink="/vendor/detail/{{ vendor.id }}">
               <img
                 width="20"
                 height="20"
@@ -41,7 +41,7 @@
                 title="Vendor Details"
               />
             </a>
-            <a routerLink="/vendor/edit/{{ vendor.id }}">
+            <a *ngIf = "adminUser" routerLink="/vendor/edit/{{ vendor.id }}">
               <img
                 width="20"
                 height="20"

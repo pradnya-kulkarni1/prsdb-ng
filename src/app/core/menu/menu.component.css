@@ -1,6 +1,6 @@
 nav {
 	width:100%;
-	background-color: rgba(76, 152, 238, 0.75);
+	background-color: rgba(151, 193, 247, 0.75);
 	padding: 10px 0;
 
 }
@@ -21,10 +21,12 @@ a {
 }
 
 a:hover {
-	background-color: rgb(92, 92, 247);
+	background-color: rgb(143, 143, 247);
 }
 
 img {
     max-width:4%;
     max-height:4%;
 }
+
+

@@ -1,3 +1,11 @@
 tr{
   background: rgba(146, 211, 237, 0.75)
 }
+.user-edit {
+  width: 20%;
+  margin: 50px auto;
+  background: rgba(163, 189, 240, 0.75); /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}

@@ -11,12 +11,14 @@ import{ SystemService} from 'src/app/service/system.service';
 export class VendorListComponent implements OnInit {
   title: string = 'Vendor-List';
   vendors?: Vendor[] = undefined;
+  adminUser?: boolean = undefined;
 
   constructor(private vendorSvc: VendorService,
     private sysSvc: SystemService
   ) { }
 
   ngOnInit(): void {
+    this.adminUser = this.sysSvc.loggedInUser.admin;
     this.sysSvc.checkLogin();
     this.vendorSvc.getAllVendors().subscribe({
       next: (resp) => {

@@ -12,11 +12,13 @@ import{ SystemService} from 'src/app/service/system.service';
 export class UserListComponent implements OnInit {
   title: string = "User-List";
   users?:User[] = undefined;
+  adminUser? : boolean = undefined;
 
   constructor(private userSvc: UserService,
     private sysSvc: SystemService) { }
 
   ngOnInit(): void {
+    this.adminUser = this.sysSvc.loggedInUser.admin;
 
     this.sysSvc.checkLogin();
 

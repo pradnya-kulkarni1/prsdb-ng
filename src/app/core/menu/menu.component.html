@@ -3,7 +3,20 @@
     {{title}}
 <li *ngFor=" let mi of menuItems" title="{{mi.tooltip}}">
 <a routerLink = "{{mi.href}}">{{mi.display}}</a>
-</li>
+</li>{{welcomeMsg}}
 </ul>
-</nav>
-<p class="pull-left">{{welcomeMsg}}</p>
+</nav> 
+
+<!-- <div>
+    <ul width="100%">
+    <li>
+        <a routerLink = "/login">
+    <img width="700" height="50" src="assets/Butterfly.png" alt = "" ></a>
+    
+        
+    <li *ngFor=" let mi of menuItems" title="{{mi.tooltip}}">
+    <a routerLink = "{{mi.href}}">{{mi.display}}</a>
+    </li>{{welcomeMsg}}
+    </ul>
+</div> -->
+

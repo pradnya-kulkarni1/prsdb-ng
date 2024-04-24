@@ -27,6 +27,7 @@ export class ReviewComponent {
   ) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
     // getiing all the requests from review method
     //if user is a reviewer getAllRequestForReview
     if (this.sysSvc.loggedInUser.reviewer){
@@ -34,7 +35,6 @@ export class ReviewComponent {
     this.route.params.subscribe({
       next:(parms)=> {
         this.userId = parms['id'];
-        console.log("UserId is "+this.userId);
         this.reqSvc.getAllRequestForReview(this.userId).subscribe({
           next:(parms) => {
             this.requests = parms;

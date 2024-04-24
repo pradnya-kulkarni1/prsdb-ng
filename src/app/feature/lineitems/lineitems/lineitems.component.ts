@@ -5,6 +5,7 @@ import {Request} from 'src/app/model/request';
 import {LineitemsService} from 'src/app/service/lineitems.service'
 import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 import { VendorService } from 'src/app/service/vendor.service';
 
 
@@ -21,27 +22,35 @@ export class LineitemsComponent implements OnInit {
   requestId: number = 0;
   lineitem: Lineitem= new Lineitem;
   requestIdOfLineitemDelete: number = 0;
+  adminUser? :boolean = undefined;
+  notAdmin?: boolean = undefined;
  
 
   constructor(
     private lineitemSvc : LineitemsService,
     private reqSvc: RequestService,
+    private sysSvc: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    console.log("lineitems component");
+    this.sysSvc.checkLogin();
+    this.adminUser = this.sysSvc.loggedInUser.admin;
+       
     this.route.params.subscribe({
       next: (parms) => {
         this.requestId = parms['id'];
-        console.log("requestId="+this.requestId);
         this.reqSvc.getRequestById(this.requestId).subscribe({
           next: (parms) => {
             this.request = parms;
+            if (this.sysSvc.loggedInUser.id == this.request.user.id)
+              {
+                if (!this.adminUser)
+                this.notAdmin = true;
+              }
           },
         });
-        console.log("request id, again, ="+this.requestId);
         this.lineitemSvc.getLinesForRequestById(this.requestId).subscribe({
           next:(resp) => {
             this.lineitems=resp;
@@ -52,7 +61,6 @@ export class LineitemsComponent implements OnInit {
             this.message = 'Error creating lines';
           },
           complete: () => {
-            console.log("c");
           },
         });
       },
@@ -93,7 +101,6 @@ export class LineitemsComponent implements OnInit {
                 this.request = parms;
               },
             });
-            console.log("request id, again, ="+this.requestId);
             this.lineitemSvc.getLinesForRequestById(this.request.id).subscribe({
               next:(resp) => {
                 this.lineitems=resp;
@@ -104,7 +111,7 @@ export class LineitemsComponent implements OnInit {
                 this.message = 'Error creating lines';
                   },
               complete: () => {
-                console.log("c");
+               
                 },
               });
          

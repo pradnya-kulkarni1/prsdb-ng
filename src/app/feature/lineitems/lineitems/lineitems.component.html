@@ -1,5 +1,6 @@
 
 <app-menu></app-menu>
+<div class="lineitems">
 <div>
     <span class="component-title">[{{ title }}]</span>
     <p *ngIf="!request">Loading...</p>
@@ -24,7 +25,7 @@
       </main>
     </div><span class="component-title">[Line Items]</span>
     <div *ngIf="lineitems">
-      <a routerLink="/lineitems/create/{{requestId}}">
+      <a *ngIf = "adminUser|| notAdmin" routerLink="/lineitems/create/{{requestId}}">
         <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
       </a>
       <main class="single">
@@ -36,7 +37,7 @@
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Line Total</th>
-                <th>Action</th>
+                <th *ngIf = "adminUser|| notAdmin">Action</th>
             </thead>
             <tbody>
                 <tr *ngFor="let l of lineitems">
@@ -47,7 +48,7 @@
                 <td>{{l.product.price| currency}}</td>
                 <td>{{l.product.price*l.quantity | currency}}</td>
                 <td>
-                  <a routerLink="/lineitems/edit/{{ l.id }}">
+                  <a *ngIf = "adminUser || notAdmin" routerLink="/lineitems/edit/{{ l.id }}">
                     <img
                       width="20"
                       height="20"
@@ -55,7 +56,7 @@
                       title="Edit Lineitem"
                     />
                   </a>
-                  <button (click)="delete(l.id)" style="border: none">
+                  <button *ngIf = "adminUser|| notAdmin" (click)="delete(l.id)" style="border: none">
                     <img
                       width="20"
                       height="20"
@@ -69,6 +70,7 @@
 </table>
 <span><button (click)="submit()"  class="btn btn-sm btn-warning">Submit</button></span>
 </main>
+</div>
 </div>
 </div>
 

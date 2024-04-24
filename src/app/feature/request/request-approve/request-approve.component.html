@@ -1,7 +1,8 @@
 <app-menu></app-menu>
-<span class="component-title">[{{ title }}]</span>
+
 <p *ngIf="!request">Loading...</p>
-<div *ngIf="request">
+<div *ngIf="request" class = "request-approve">
+<span class="component-title">[{{ title }}]</span>
   <main class="single">
     <table class="table table-sm">
         <thead>
@@ -21,8 +22,9 @@
         </table>
         </main>
         </div>
-    <span class="component-title">[Line Items]</span>
-    <div *ngIf="lineitems">
+   
+    <div *ngIf="lineitems" class="lineitems">
+     <span class="component-title">[Line Items]</span>
         <main class="single">
             <table class="table table-sm">
                 <thead>

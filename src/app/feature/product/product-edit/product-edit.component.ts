@@ -16,6 +16,7 @@ export class ProductEditComponent implements OnInit {
   productId: number = 0;
   vendors: Vendor[] = [];
   message?: string = undefined;
+  
 
   constructor(
     private productSvc: ProductService,

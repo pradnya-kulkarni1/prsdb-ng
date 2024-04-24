@@ -1,6 +1,6 @@
 
 <app-menu></app-menu>
-<div>
+<div  class="request-detail">
     <span class="component-title">[{{ title }}]</span>
     <p *ngIf="!request">Loading...</p>
     <div *ngIf="request">
@@ -109,7 +109,7 @@
       </main>
       <span>
         <span
-          ><button
+          ><button *ngIf = "isNEW"
             routerLink="/Request/edit/{{ request.id }}"
             class="btn btn-sm btn-warning"
             >Edit</button
@@ -117,7 +117,7 @@
         >
         <span>
           |
-          <button (click)="delete()" class="btn btn-sm btn-danger">
+          <button *ngIf = "isNEW" (click)="delete()" class="btn btn-sm btn-danger">
             Delete
           </button></span
         >

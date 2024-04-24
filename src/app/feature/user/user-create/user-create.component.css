@@ -7,10 +7,10 @@ p.b {
   font-size:large;
   font-weight: 300;
 }
-.user-create {
-  width: 80%;
+.user-create{
+  width: 25%;
   margin: 50px auto;
-  background: rgba(68, 193, 235, 0.75); /* Semi-transparent white background */
+  background: rgba(151, 193, 247, 0.75); /* Semi-transparent white background */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);

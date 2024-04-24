@@ -4,6 +4,7 @@ import { Request } from 'src/app/model/request';
 import { RequestService } from 'src/app/service/request.service';
 import { UserService } from 'src/app/service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-edit',
@@ -16,22 +17,36 @@ export class RequestEditComponent implements OnInit {
   requestId: number = 0;
   user: User = new User(); 
   message?: string = undefined;
+  isNEW?: boolean = undefined;
+  notNEWmessage?: string = undefined;
+  
 
   constructor(
     private requestSvc: RequestService,
     private userSvc: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sysSvc: SystemService
 
   ) { }
 
   ngOnInit(): void {
+   
+    if(this.sysSvc.loggedInUser.admin){
+
     this.route.params.subscribe({
       next: (parms) => {
         this.requestId = parms['id'];
         this.requestSvc.getRequestById(this.requestId).subscribe({
           next: (parms) => {
             this.request = parms;
+            if(this.request.status == "NEW")
+              {
+                this.isNEW = true;
+              }
+              else {
+                this.notNEWmessage = "Request is not NEW, you cannot edit!"
+              }
           },
         });
       },
@@ -41,6 +56,12 @@ export class RequestEditComponent implements OnInit {
       complete: () => {},
     });
   }
+  else 
+  {
+    // user is not an Admin
+    this.message =" Only Admin can Edit the Request";
+  }
+}
 
   save(): void {
     // NOTE: Check for existence of request title before save?

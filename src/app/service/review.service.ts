@@ -11,6 +11,3 @@ export class ReviewService{
     {}
 
 }
-
-/*public List<Request> getAllRequestForReview(@PathVariable int UserId)
-public Request submitRequestForReveiw(@PathVariable int id)*/

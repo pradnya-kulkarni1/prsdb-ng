@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Request } from 'src/app/model/request';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-detail',
@@ -14,14 +15,18 @@ export class RequestDetailComponent {
   request: Request = new Request();
   requestId: number = 0;
   message?: string = undefined;
+  adminUser?: boolean = undefined;
+  isNEW?: boolean = undefined;
 
   constructor(
     private requestSvc: RequestService,
+    private sysSvc: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+
     // get the id from the url
     this.route.params.subscribe({
       next: (parms) => {
@@ -29,6 +34,10 @@ export class RequestDetailComponent {
         this.requestSvc.getRequestById(this.requestId).subscribe({
           next: (parms) => {
             this.request = parms;
+            if(this.request.status == "NEW")
+              {
+                this.isNEW = true;
+              }
           },
         });
       },

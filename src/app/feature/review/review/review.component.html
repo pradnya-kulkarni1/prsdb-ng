@@ -1,6 +1,6 @@
 
 <app-menu></app-menu>
-<div>
+<div class="review">
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
     </section>
@@ -28,7 +28,7 @@
           <td>{{ request.dateNeeded }}</td>
           <td>{{ request.deliveryMode }}</td>
           <td>{{ request.status }}</td>
-          <td>{{ request.total }}</td>
+          <td>{{ request.total|currency }}</td>
           <td>{{ request.submittedDate | date :'MM/dd/yyyy'}}</td>
           <td>
             <a routerLink="/request/approve/{{request.id}}">

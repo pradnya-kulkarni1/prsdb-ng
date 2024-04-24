@@ -1,8 +1,9 @@
 <app-menu></app-menu>
-<div>
+<div class="request-edit">
     <span class="component-title">[{{ title }}]</span>
     <p *ngIf="!request">Loading...</p>
-    <div *ngIf="request">
+    <p *ngIf = "!isNEW">{{notNEWmessage}}</p>
+    <div *ngIf="request && isNEW">
       <main class="single">
         <table class="table-sm">
           <tr>

@@ -9,27 +9,27 @@
     <table *ngIf="products" class="table table-sm table-striped">
       <thead>
         <tr>
-          <th>Id</th>
+          <th><a (click) = "sortBy('id')">Id</a></th>
           <th>Vendor</th>
-          <th>Partnumber</th>
-          <th>Name</th>
-          <th>Price</th>
+          <th><a (click) = "sortBy('partNumber')">Partnumber</a></th>
+          <th><a (click) = "sortBy('name')">Name</a></th>
+          <th><a (click) = "sortBy('price')">Price</a></th>
           <th>Unit</th>
           <th>PhotoPath</th>
-          <th>Action</th>
+          <th *ngIf = "adminUser">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products| sort: sortCriteria : sortOrder">
           <td>{{ product.id }}</td>
           <td>{{ product.vendor.code +" "+product.vendor.name }}</td>
           <td>{{ product.partNumber }}</td>
           <td>{{ product.name }}</td>
-          <td>{{ product.price | currency}}</td>
+          <td>{{ product.price| currency}}</td>
           <td>{{ product.unit }}</td>
           <td>{{ product.photoPath }}</td>
           <td>
-            <a routerLink="/product/detail/{{ product.id }}">
+            <a *ngIf = "adminUser" routerLink="/product/detail/{{ product.id }}">
               <img
                 width="20"
                 height="20"
@@ -37,7 +37,7 @@
                 title="Vendor Details"
               />
             </a>
-            <a routerLink="/product/edit/{{ product.id }}">
+            <a *ngIf = "adminUser" routerLink="/product/edit/{{ product.id }}">
               <img
                 width="20"
                 height="20"

@@ -23,8 +23,10 @@ export class MenuComponent implements OnInit {
   this.menuItems.push(new MenuItem("Vendor","/vendor/list","Vendor List"));
   this.menuItems.push(new MenuItem("Product","/product/list","Product List"));
   this.menuItems.push(new MenuItem("Request","/request/list","Request List"));
-  this.menuItems.push(new MenuItem("Review","/review/"+this.sysSvc.loggedInUser.id,"Request - Review"));
 
+  if(this.sysSvc.loggedInUser.reviewer){
+  this.menuItems.push(new MenuItem("Review","/review/"+this.sysSvc.loggedInUser.id,"Request - Review"));
+  }
 
   this.sysSvc.checkLogin;
   if (this.sysSvc.loggedInUser.id ==0){

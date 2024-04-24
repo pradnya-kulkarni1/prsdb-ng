@@ -36,20 +36,6 @@ export class LineitemsEditComponent implements OnInit {
 
   ngOnInit(): void {
      
-        // this.reqSvc.getRequestById(this.lineitem.requestId).subscribe({
-        //   next: (resp) => {
-        //     this.request = resp;
-        //       // set the request in lineitem
-        //     this.lineitem.request = this.request;
-        //     console.log("Request Id"+ this.lineitem.request.id);
-        //   },
-        //   error:(err) => {
-        //     console.log('Request - error getting request ');
-        //   },
-        //   complete:() => {},
-        // });
-      
-    
     this.productSvc.getAllProducts().subscribe({
       next: (resp) => {
         this.products = resp;
@@ -77,11 +63,10 @@ export class LineitemsEditComponent implements OnInit {
   }
   save(): void {
    
-    // NOTE: Check for existence of lineitem title before save?
     this.lineitemSvc.updateLineitem(this.lineitemId, this.lineitem).subscribe({
       next: (resp) => {
         this.lineitem = resp;
-        console.log("Updated the lineitem");
+        
         console.log("RequestId for lineItem= "+this.lineitem.request.id);
         this.router.navigateByUrl('/lineitems/'+this.lineitem.request.id);
       },

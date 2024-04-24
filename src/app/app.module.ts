@@ -28,6 +28,8 @@ import { LineitemsComponent } from './feature/lineitems/lineitems/lineitems.comp
 import { LineitemsCreateComponent } from './feature/lineitems/lineitems-create/lineitems-create.component';
 import { LineitemsEditComponent } from './feature/lineitems/lineitems/lineitems-edit/lineitems-edit.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
+import { SortPipe } from './pipe/sort.pipe';
+import { BaseComponent } from './feature/base/base.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { RequestApproveComponent } from './feature/request/request-approve/reque
     LineitemsComponent,
     LineitemsCreateComponent,
     LineitemsEditComponent,
-    RequestApproveComponent
+    RequestApproveComponent,
+    SortPipe,
+    BaseComponent
   ],
   imports: [
     BrowserModule,
